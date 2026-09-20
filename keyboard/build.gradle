@@ -6,6 +6,15 @@ android {
     namespace 'com.pattiz.wintabkeyboard'
     compileSdk 34
 
+    signingConfigs {
+        wintabDev {
+            storeFile file("../wintab-dev-key.jks")
+            storePassword "wintabdev2026"
+            keyAlias "wintabdev"
+            keyPassword "wintabdev2026"
+        }
+    }
+
     defaultConfig {
         applicationId "com.pattiz.wintabkeyboard"
         minSdk 21
@@ -15,8 +24,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            signingConfig signingConfigs.wintabDev
+        }
         release {
             minifyEnabled false
+            signingConfig signingConfigs.wintabDev
         }
     }
 }

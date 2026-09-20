@@ -17,18 +17,25 @@ Windows-style Android HOME launcher for the Galaxy Tab E / Android 7.1.2 project
 
 ## WinTab Keyboard
 
-The repo now also builds a separate real Android IME named **WinTab Keyboard**. It can be enabled from Android Language & Input settings and used in other apps too.
+The repo also builds a separate real Android IME named **WinTab Keyboard**. It can be enabled from Android Language & Input settings and used in other apps too.
+
+## Stable development signing
+
+The project uses a repository-local **development-only** signing key so GitHub Actions builds keep the same signature between versions. This avoids `INSTALL_FAILED_UPDATE_INCOMPATIBLE` on future WinTab updates. This key is intentionally not a production/Play Store signing key.
+
+Because v1/v2 were built with temporary GitHub runner debug keys, upgrading from those builds still requires uninstalling the old WinTab Launcher once. After installing this stable-signed v3 build, future builds using the same key can be installed with `adb install -r`.
 
 ## Install
 
-Launcher:
+If an older WinTab Launcher is installed:
+
 ```bat
-adb install -r app-debug.apk
+adb uninstall com.pattiz.wintablauncher
+adb install WinTabLauncher-v3-stable.apk
 ```
 
 Keyboard:
-```bat
-adb install -r keyboard-debug.apk
-```
 
-Then open **WinTab Keyboard** once, enable it in keyboard settings, and choose it from Android's input-method picker.
+```bat
+adb install -r WinTabKeyboard-stable.apk
+```
