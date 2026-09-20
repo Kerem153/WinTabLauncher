@@ -1,25 +1,34 @@
-# WinTabLauncher v2
+# WinTab Launcher v3
 
 Windows-style Android HOME launcher for the Galaxy Tab E / Android 7.1.2 project.
 
-## v2 changes
+## Launcher v3
 
-- Rebuilt the v1 launcher UI instead of keeping the placeholder shortcuts.
-- Desktop icons now come from the tablet's real installed applications.
-- Taskbar pinned icons use the original installed app icons.
-- Clicking the taskbar clock opens a Windows-style clock and monthly calendar flyout.
-- Calendar supports previous/next month navigation and highlights today.
-- Start menu still lists and searches real installed apps.
-- Added a custom Turkish QWERTY touch keyboard for Start-menu search.
-- Package remains a real Android HOME launcher.
-- No native libraries: works without an ARM/ARM64 ABI dependency.
+- Desktop shows only selected apps, not every installed app.
+- Desktop apps use the real application icons and labels.
+- Desktop icons automatically move into a new column before reaching the taskbar.
+- Long-press a desktop icon to remove only its desktop shortcut.
+- Start menu contains every launchable installed app.
+- Long-press an app in Start to add/remove it from desktop, pin/unpin it from taskbar, or open Android uninstall for normal user apps.
+- System apps are protected from the uninstall option.
+- Taskbar uses real installed app icons and supports pin/unpin.
+- The custom in-launcher keyboard from v2 was removed; Start search uses Android's selected system keyboard.
+- Windows-style clock/calendar flyout remains.
+
+## WinTab Keyboard
+
+The repo now also builds a separate real Android IME named **WinTab Keyboard**. It can be enabled from Android Language & Input settings and used in other apps too.
 
 ## Install
 
-Download the APK artifact produced by GitHub Actions, extract it, then:
-
+Launcher:
 ```bat
 adb install -r app-debug.apk
 ```
 
-If v1 is already installed, `-r` upgrades it in place and keeps WinTab Launcher selected when Android allows it.
+Keyboard:
+```bat
+adb install -r keyboard-debug.apk
+```
+
+Then open **WinTab Keyboard** once, enable it in keyboard settings, and choose it from Android's input-method picker.

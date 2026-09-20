@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace 'com.pattiz.wintablauncher'
+    namespace 'com.pattiz.wintabkeyboard'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.pattiz.wintablauncher"
+        applicationId "com.pattiz.wintabkeyboard"
         minSdk 21
         targetSdk 28
-        versionCode 3
-        versionName "3.0"
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
